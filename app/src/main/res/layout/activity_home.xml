@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home">
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="328dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="FORMULARIO DE INGRESO VEHÍCULO"
+        android:fontFamily="@font/ubuntu"
+        android:textAlignment="center"
+        android:textColor="#003a57"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nombre_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre completo"
+                android:fontFamily="@font/ubuntu"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/nombre_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:ems="10"
+                android:hint="Ingrese su nombre y apellido"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/rut_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="19dp"
+                android:text="Rut"
+                android:fontFamily="@font/ubuntu"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/rut_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Ingrese su rut sin puntos y con guión"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/patente_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="19dp"
+                android:text="Patente"
+                android:fontFamily="@font/ubuntu"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/patente_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Ingrese la patente (opcional)"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/marca_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="19dp"
+                android:text="Marca"
+                android:fontFamily="@font/ubuntu"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner_marca"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                />
+
+            <TextView
+                android:id="@+id/color_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="19dp"
+                android:text="Color"
+                android:fontFamily="@font/ubuntu"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner_color"
+                android:layout_width="match_parent"
+                android:layout_height="46dp" />
+
+            <TextView
+                android:id="@+id/fechaingreso_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="19dp"
+                android:text="Fecha de ingreso"
+                android:fontFamily="@font/ubuntu"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/fecha_TextDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Ingrese la fecha de ingreso del vehículo"
+                android:inputType="date" />
+            <TextView
+                android:id="@+id/kilometraje_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Kilometraje"
+                android:fontFamily="@font/ubuntu"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/kilometraje_textNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="Ingrese kilometraje del vehículo"/>
+
+            <TextView
+                android:id="@+id/motivo_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Motivo"
+                android:fontFamily="@font/ubuntu"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Servicio"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/ubuntu"/>
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mantención"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/ubuntu"/>
+
+                <RadioButton
+                    android:id="@+id/opcion_otro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Otro"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/ubuntu"/>
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/motivo_text"
+                android:layout_width="match_parent"
+                android:layout_height="113dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Cuál es su motivo?"/>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="19dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/cuartiario"
+                android:layout_marginBottom="40dp"
+                android:onClick="finalizarReporte"
+                android:text="Guardar"
+                android:fontFamily="@font/ubuntu"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
