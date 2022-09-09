@@ -22,30 +22,27 @@ class Home : AppCompatActivity() {
             usuario = extras.getString("usuario").toString();
             this.supportActionBar!!.title = "Bienvenido: " + usuario;
         }
+
+        val sw_otro_active = findViewById<RadioButton>(R.id.opcion_otro)
+        val txt_motivo_active = findViewById<EditText>(R.id.motivo_text)
+        sw_otro_active.isChecked = false
+        txt_motivo_active.isEnabled = false
+
         iniciarFormulario();
 
     }
 
-    fun opcionOtro() {
-
-        var opcionOtro = findViewById<RadioButton>(R.id.opcion_otro);
-        var motivo = findViewById<EditText>(R.id.motivo_text);
-
-      // motivo.isEnabled = opcionOtro.isChecked;
-
-        if ((opcionOtro.isChecked)) {
-            motivo.isEnabled = true;
-            //motivo.inputType = InputType.TYPE_CLASS_TEXT;
-            //motivo.isFocusableInTouchMode = true;
-        } else {
-            motivo.isEnabled = false;
-            motivo.isFocusableInTouchMode = false;
-        }
+    fun moveSwitchOtro(view: View) {
+        val sw_otro_active = findViewById<RadioButton>(R.id.opcion_otro)
+        val txt_motivo_active = findViewById<EditText>(R.id.motivo_text)
+        txt_motivo_active.isEnabled = sw_otro_active.isChecked
+        txt_motivo_active.setText("")
     }
+
+
 
     fun iniciarFormulario(){
 
-        opcionOtro();
 
         var marca_opc = arrayOf("Suzuki", "Fiat", "Mercedes-Benz", "Chevrolet", "Audi")
         var adapter_marca = ArrayAdapter (this, android.R.layout.simple_spinner_item, marca_opc)
@@ -97,6 +94,10 @@ class Home : AppCompatActivity() {
                 Toast.makeText(this, "Debe indicar un la fecha de ingreso", Toast.LENGTH_LONG);
             toast.show();
         }
+
+        val razon = findViewById<EditText>(R.id.motivo_text).text.toString();
+
+
         val marca = marca_opc.selectedItem.toString();
         val color = color_opc.selectedItem.toString();
 
@@ -123,7 +124,7 @@ class Home : AppCompatActivity() {
             with(builder)
             {
                 setTitle("Resumen")
-                setMessage("Nombre completo: " + nombre + "\n" + "Rut: " + rut + "\n" + "Patente: " + patente + "\n" + "Marca: " + marca + "\n" + "Color: " + color + "\n" + "Fecha de ingreso: " + fecha + "\n" + "Kilometraje: " + kilometraje + "\n" + "Motivo: " + motivo);
+                setMessage("Nombre completo: " + nombre + "\n" + "Rut: " + rut + "\n" + "Patente: " + patente + "\n" + "Marca: " + marca + "\n" + "Color: " + color + "\n" + "Fecha de ingreso: " + fecha + "\n" + "Kilometraje: " + kilometraje + "\n" + "Motivo: " + motivo + "\n" + "Razon: " + razon);
                 setPositiveButton("Enviar", DialogInterface.OnClickListener(function = positiveButtonClick))
                 setNegativeButton("Cancelar", negativeButtonClick)
                 show()

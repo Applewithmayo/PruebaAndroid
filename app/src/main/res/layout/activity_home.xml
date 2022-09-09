@@ -179,7 +179,8 @@
                     android:layout_height="wrap_content"
                     android:text="Servicio"
                     android:textSize="16sp"
-                    android:fontFamily="@font/ubuntu"/>
+                    android:fontFamily="@font/ubuntu"
+                    android:onClick="moveSwitchOtro"/>
 
                 <RadioButton
                     android:id="@+id/radioButton2"
@@ -187,7 +188,8 @@
                     android:layout_height="wrap_content"
                     android:text="Mantención"
                     android:textSize="16sp"
-                    android:fontFamily="@font/ubuntu"/>
+                    android:fontFamily="@font/ubuntu"
+                    android:onClick="moveSwitchOtro"/>
 
                 <RadioButton
                     android:id="@+id/opcion_otro"
@@ -195,7 +197,8 @@
                     android:layout_height="wrap_content"
                     android:text="Otro"
                     android:textSize="16sp"
-                    android:fontFamily="@font/ubuntu"/>
+                    android:fontFamily="@font/ubuntu"
+                    android:onClick="moveSwitchOtro"/>
 
             </RadioGroup>
 
