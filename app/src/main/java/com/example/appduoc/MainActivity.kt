@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
         val usuario = findViewById<EditText>(R.id.txt_usuario).text.toString();
         val contrasena = findViewById<EditText>(R.id.txt_contrasena).text.toString();
 
+
+
         if(contrasena.equals("admin")) {
             val intent = Intent(this, Home::class.java);
 

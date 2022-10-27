@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Androcar APP</string>
+    <string name="url_service_fer">https://www.fer-sepulveda.cl/API_PRUEBA2/api-service.php</string>
+    <string name="func_service_fer_create_user">UsuarioAlmacenar</string>
+    <string name="func_service_fer_login">UsuarioLogin</string>
+    <string name="func_service_fer_create_report_car">InspeccionAlmacenar</string>
+    <string name="func_service_fer_get_all_reports">InspeccionObtener</string>
 </resources>

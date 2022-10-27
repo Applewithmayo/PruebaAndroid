@@ -8,7 +8,8 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import java.lang.Exception
 
-class Home : AppCompatActivity() {
+class
+Home : AppCompatActivity() {
 
     var usuario = "";
 
