@@ -38,6 +38,20 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <Button
+                android:id="@+id/btn_listar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="navegarListarRegistros"
+                android:text="Listar equipos" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="cerrarSesion"
+                android:text="Cerrar Sesión" />
+
             <TextView
                 android:id="@+id/nombre_label"
                 android:layout_width="wrap_content"

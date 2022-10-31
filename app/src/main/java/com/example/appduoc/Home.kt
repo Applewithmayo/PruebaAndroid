@@ -2,10 +2,15 @@ package com.example.appduoc
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
+import okhttp3.*
+import java.io.IOException
 import java.lang.Exception
 
 class
@@ -43,8 +48,6 @@ Home : AppCompatActivity() {
 
 
     fun iniciarFormulario(){
-
-
         var marca_opc = arrayOf("Suzuki", "Fiat", "Mercedes-Benz", "Chevrolet", "Audi")
         var adapter_marca = ArrayAdapter (this, android.R.layout.simple_spinner_item, marca_opc)
         adapter_marca.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -122,6 +125,36 @@ Home : AppCompatActivity() {
         }
 
         if(validador) {
+            var usuario = this.usuario
+            val mediaType: MediaType? = MediaType.parse("application/json; charset=utf-8")
+            val json =
+                "{\"nombreFuncion\":\"InspeccionAlmacenar\", \"parametros\": [\"$patente\", \"$marca\", \"$color\", \"$fecha\", \"$kilometraje\", \"$motivo\", \"$motivo\", \"$rut\", \"$nombre\", \"$usuario\"]}"
+            val client = OkHttpClient()
+            println("TOV " + json)
+            val body: RequestBody = RequestBody.create(mediaType, json)
+            val request: Request =
+                Request.Builder().url("https://fer-sepulveda.cl/API_PRUEBA2/api-service.php").post(body).build()
+
+            val toastError =
+                Toast.makeText(this,"Ha ocurrido un inconveniente", Toast.LENGTH_LONG)
+
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    println("TOV: ERROR: " + e.message)
+                    return
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    response.use {
+                        val jsonData = response.body()!!.string()
+                        val obj = Json.decodeFromString<RespuestaLogin>(jsonData.toString())
+                        var response = obj.result
+
+                        println("TOV: " + response)
+                    }
+                }
+            })
+
             with(builder)
             {
                 setTitle("Resumen")
@@ -147,5 +180,17 @@ Home : AppCompatActivity() {
     val neutralButtonClick = { dialog: DialogInterface, which: Int ->
         Toast.makeText(this,
             "Tal Vez", Toast.LENGTH_SHORT).show()
+    }
+
+    fun navegarListarRegistros(view: View){
+        val intent = Intent(this, ListarRegistros::class.java)
+        startActivity(intent)
+    }
+
+    fun cerrarSesion(view: View){
+        val databaseHandler: DbHandler = DbHandler(this)
+        databaseHandler.deleteUser()
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 }
